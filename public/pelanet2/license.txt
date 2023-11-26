@@ -1,0 +1,11 @@
+Model Information:
+* title:	Chandrayaan-2 in flight configuration
+* source:	https://sketchfab.com/3d-models/chandrayaan-2-in-flight-configuration-4d0017f2c5fb49bb9817601858106ddb
+* author:	tashtego (https://sketchfab.com/tashtego)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Chandrayaan-2 in flight configuration" (https://sketchfab.com/3d-models/chandrayaan-2-in-flight-configuration-4d0017f2c5fb49bb9817601858106ddb) by tashtego (https://sketchfab.com/tashtego) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
