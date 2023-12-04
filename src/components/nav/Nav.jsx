@@ -1,7 +1,7 @@
-import * as React from "react";
+//@ts-nocheck
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MenuItem } from "./Items";
-
 
 const variants = {
   open: {
@@ -11,8 +11,6 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-
-
 
 const navLinks = [
   {
@@ -28,21 +26,44 @@ const navLinks = [
     text: "Project",
   },
   {
+    id: "publication",
+    text: "Publication",
+  },
+  {
     id: "contact",
     text: "Contact",
   },
 ];
 
 
+const Navigation = () => {
+  const [showProject, setShowProject] = useState(true);
 
-export const Navigation = () => (
-  <motion.ul variants={variants} className="listMenu">
-    {navLinks.map((nav) => (
-      <MenuItem
-        id={nav.id}
-        key={nav.id}
-        text={nav.text}
-      />
-    ))}
-  </motion.ul>
-);
+  useEffect(() => {
+    const handleResize = () => {
+      setShowProject(window.innerWidth >= 1000);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
+
+  return (
+    <motion.ul variants={variants} className="listMenu">
+      {navLinks.map((nav) => (
+        <MenuItem
+          id={nav.id}
+          key={nav.id}
+          text={nav.text}
+          className={nav.id === "project" && !showProject ? "hidden sm:block" : ""}
+        />
+      ))}
+    </motion.ul>
+  );
+};
+
+export default Navigation;

@@ -2,57 +2,113 @@ import {
   Availability,
   Colors,
   Music,
-  SchedulingLinks,
-  Team,
-  Todo,
 } from "./features/card";
 import { MusicVisual, OtherVisual } from "./features/visual";
-import { stagger, useAnimate } from "framer-motion";
+import { stagger, useAnimate, motion } from "framer-motion";
 import { FeatureTitle } from "./features/title";
 import { useFeatureStore } from "./features/store";
 import { useEffect } from "react";
-
 import { useHidePageOverflow } from "../../utils/toggle-page-overflow";
 import { useEscapePress } from "../../utils/use-escape-press";
+import { styles } from "../../styles";
+import { fadeIn, textVariant } from "../../utils/motion";
+import { SectionWrapper } from "../../hoc";
+
+
+
 
 const features = [
   {
-    title: "Use your calendar as a todo list",
-    id: "todo-list",
-    card: Todo,
-    visual: OtherVisual,
-  },
-  {
-    title: "Color your calendar to organize",
-    id: "colors",
-    card: Colors,
-    visual: OtherVisual,
-  },
-  {
-    title: "Instantly know if someone is available",
-    id: "availability",
-    card: Availability,
-    visual: OtherVisual,
-  },
-  {
-    title: "Track what you listened to when",
     id: "music",
+    title: "Amlak Eeno",
     card: Music,
     visual: MusicVisual,
+    description:
+      "Web-based platform designed for users to effortlessly search home rentals and purchases in Tehran, offering a convenient and efficient solution for housing needs.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "django",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "postGIS",
+        color: "pink-text-gradient",
+      },
+    ],
+    // image: carrent,
+    source_code_link:
+      "https://github.com/maryamHabibpourr/AmlakEenoClient-React-LeafLet/tree/main/src",
   },
   {
-    title: "Send scheduling links guests love",
-    id: "scheduling-links",
-    card: SchedulingLinks,
+    id: "colors",
+    title: "Tee Trends",
+    card: Colors,
     visual: OtherVisual,
+    description:
+      "Web application exclusively for buying T-shirts for both women and men – explore, choose, and purchase your favorite styles easily!",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "redux",
+        color: "green-text-gradient",
+      },
+      {
+        name: "three.js",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "django",
+        color: "orange-text-gradient",
+      },
+    ],
+    // image: jobit,
+    source_code_link:
+      "https://github.com/maryamHabibpourr/TeetrendsClient-React-Redux/tree/main/src",
   },
   {
-    title: "Always know what your team is up to",
-    id: "team",
-    card: Team,
+    id: "availability",
+    title: "Eshop",
+    card: Availability,
     visual: OtherVisual,
+    description:
+      "An all-in-one online shopping platform catering to your every need in life, from TVs and clothes to phones and more. Discover, shop, and order everything effortlessly!",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "redux",
+        color: "green-text-gradient",
+      },
+      {
+        name: "SCSS",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "orange-text-gradient",
+      },
+    ],
+    // image: tripguide,
+    source_code_link:
+      "https://github.com/maryamHabibpourr/Eshop-Firebase-React-Redux/tree/main/src",
   },
 ];
+
+
+
+
+
+
+
 
 const PinCard = () => {
   const [scope, animate] = useAnimate();
@@ -115,9 +171,27 @@ const PinCard = () => {
     }
   }, [animate, fullscreenFeature, lastFullscreenFeature]);
 
-
   return (
     <div className="mx-auto max-w-6xl px-4">
+      <>
+        <motion.div variants={textVariant(0.5)} className="pt-5">
+          <p className={`${styles.sectionSubText} `}>My work</p>
+          <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        </motion.div>
+
+        <div className="w-full flex">
+          <motion.p
+            variants={fadeIn("", "", 0.1, 1)}
+            className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          >
+            Following projects showcases my skills and experience through
+            real-world examples of my work. Each project is briefly described
+            with links to code repositories. It reflects my ability to solve
+            complex problems, work with different technologies, and manage
+            projects effectively.
+          </motion.p>
+        </div>
+      </>
       <div ref={scope}>
         {features.map((feature) => (
           <feature.visual id={feature.id} key={feature.id} />
@@ -129,11 +203,17 @@ const PinCard = () => {
           Back to site
         </button>
         <div className="flex w-full items-start gap-20">
-          <div className="w-full py-[50vh]">
+          <div className="w-full py-[10vh]">
             <ul>
               {features.map((feature) => (
                 <li key={feature.id}>
-                  <FeatureTitle id={feature.id}>{feature.title}</FeatureTitle>
+                  <FeatureTitle
+                    id={feature.id}
+                    title={feature.title}
+                    description={feature.description}
+                    source_code_link={feature.source_code_link}
+                    tags={feature.tags}
+                  />
                 </li>
               ))}
             </ul>
@@ -147,9 +227,12 @@ const PinCard = () => {
           </div>
         </div>
       </div>
-      <div>More room to scroll</div>
     </div>
   );
 };
 
-export default PinCard;
+
+
+
+export default SectionWrapper(PinCard, "project");
+

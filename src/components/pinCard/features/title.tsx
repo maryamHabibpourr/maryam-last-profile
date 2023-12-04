@@ -1,20 +1,25 @@
 import classNames from "classnames";
 import { useInView } from "framer-motion";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useFeatureStore } from "./store";
-
-
-
+import { GithubIcon } from "../../../assets/icons/github";
 
 type Props = {
-  children: React.ReactNode;
   id: string;
+  title: string;
+  description: string;
+  source_code_link: string;
+  tags: { name: string; color: string }[];
 };
 
-
-
-export const FeatureTitle = ({ children, id }: Props) => {
-  const ref = useRef<HTMLParagraphElement>(null);
+export const FeatureTitle = ({
+  title,
+  description,
+  source_code_link,
+  tags,
+  id,
+}: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
   const documentRef = useRef(document);
   const isInView = useInView(ref, {
     margin: "-50% 0px -50% 0px",
@@ -35,25 +40,39 @@ export const FeatureTitle = ({ children, id }: Props) => {
   const setInViewFeature = useFeatureStore((state) => state.setInViewFeature);
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
 
-
-
   useEffect(() => {
     if (isInView) setInViewFeature(id);
     if (!isInView && inViewFeature === id) setInViewFeature(null);
   }, [isInView, id, setInViewFeature, inViewFeature]);
 
-  
-
-  
   return (
-    <p
+    <div
       ref={ref}
       className={classNames(
-        "feature-title py-16 font-heading text-5xl transition-colors",
+        "feature-title py-40 font-heading text-5xl transition-colors ",
         isInView ? "text-black" : "text-gray-300"
       )}
     >
-      {children}
-    </p>
+      <h2 className="base-color font-bold text-[35px] mb-4">{title}</h2>
+      <p className="mt-2 text-white text-[25px] font-medium">{description}</p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+            #{tag.name}
+          </p>
+        ))}
+      </div>
+    
+      <div className="m-2 flex justify-end">
+        <div
+          onClick={() => window.open(source_code_link, "_blank")}
+          className="mt-4 flex items-center text-[#dcff50] text-[12px] cursor-pointer"
+        >
+          <GithubIcon className="mr-2 inline h-5 w-5" />
+          Import GitHub project
+        </div>
+      </div>
+    </div>
   );
 };

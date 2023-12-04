@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import { insta, twt, link, gitt } from "../assets";
+import { gitt } from "../assets";
+// import { insta, twt, link } from "../assets";
 
 
 const Footer = () => {
@@ -21,17 +22,17 @@ const Footer = () => {
         <p className={`${styles.sectionSubTextSmaller} text-justify lowercase`}>
           This is the official website of an unofficial person who try to
           understand more about reasons of things. This site belong to{" "}
-          <span className="text-[#f12711] uppercase">Maryam Habibpour</span> .
+          <span className="text-[#dcff50] uppercase">Maryam Habibpour</span> .
         </p>
         <p className={`${styles.sectionSubTextSmaller} mt-4`}>
           Email:{" "}
-          <span className="text-[#f12711] lowercase">
+          <span className="text-[#dcff50] lowercase">
             e.maryamhabibpour@gmail.com
           </span>
         </p>
         <p className={`${styles.sectionSubTextSmaller} mt-2`}>
           Phone Number:{" "}
-          <span className="text-[#f12711] lowercase">+989919704552</span>
+          <span className="text-[#dcff50] lowercase">+989919704552</span>
         </p>
       </motion.div>
 

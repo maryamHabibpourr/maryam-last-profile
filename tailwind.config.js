@@ -27,8 +27,12 @@ module.exports = {
       screens: {
         xs: "450px",
       },
+      backgroundColor:{
+        "blue-back":"linear-gradient(to right,blue 20%, rgb(0,0,0,0.6) 80%)"
+      },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/Grid11.png')",
+        "Experience-pattern": "url('src/assets/whiteback.png')"
       },
       // spacing: {
       //   0: "0",

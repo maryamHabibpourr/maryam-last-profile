@@ -7,6 +7,7 @@ import {
     typescript,
     html,
     css,
+    // django,
     reactjs,
     redux,
     tailwind,
@@ -15,10 +16,10 @@ import {
     git,
     figma,
     docker,
-    meta,
-    starbucks,
-    tesla,
-    shopify,
+    // meta,
+    // starbucks,
+    // tesla,
+    // shopify,
     carrent,
     jobit,
     tripguide,
@@ -211,6 +212,7 @@ import {
 
   const projects = [
     {
+      id:1,
       name: "Amlak Eeno",
       description:
         "Web-based platform designed for users to effortlessly search home rentals and purchases in Tehran, offering a convenient and efficient solution for housing needs.",
@@ -232,6 +234,7 @@ import {
       source_code_link: "https://github.com/maryamHabibpourr/AmlakEenoClient-React-LeafLet/tree/main/src",
     },
     {
+      id:2,
       name: "Tee Trends",
       description:
         "Web application exclusively for buying T-shirts for both women and men – explore, choose, and purchase your favorite styles easily!",
@@ -257,6 +260,7 @@ import {
       source_code_link: "https://github.com/maryamHabibpourr/TeetrendsClient-React-Redux/tree/main/src",
     },
     {
+      id:3,
       name: "Eshop",
       description:
         "An all-in-one online shopping platform catering to your every need in life, from TVs and clothes to phones and more. Discover, shop, and order everything effortlessly!",
@@ -287,3 +291,4 @@ import {
 
 
   export { services, technologies, experiences, testimonials, projects };
+  

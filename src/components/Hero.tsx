@@ -14,10 +14,10 @@ const Hero = () => {
     offset: ["end end", "end start"],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const position = useTransform(scrollYProgress, (pos) =>
-    pos >= 1 ? "relative" : "fixed"
-  );
+  // const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  // const position = useTransform(scrollYProgress, (pos) =>
+  //   pos >= 1 ? "relative" : "fixed"
+  // );
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {

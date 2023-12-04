@@ -23,17 +23,19 @@ const Visual = ({ children, id }: VisualProps) => {
   );
 };
 
+
+
 export const MusicVisual = ({ id }: Props) => {
   const fullscreenFeature = useFeatureStore((store) => store.fullscreenFeature);
   const isFullscreen = fullscreenFeature === id;
 
   return (
     <Visual id={id}>
-      <img src="/window-spotify.webp" />
+      <img src="/window-spotify.png" />
       {isFullscreen && (
         <motion.div
           layoutId="spotify-logo"
-          className="absolute left-[61.7%] top-[53%] h-48 w-[10px] rounded-[10px] bg-[#1bd761] p-[1px] shadow-lg"
+          className="absolute left-[61.7%] top-[53%] h-48 w-[10px] rounded-[10px] bg-[#dcff50] p-[1px] shadow-lg"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
             <path
@@ -47,6 +49,9 @@ export const MusicVisual = ({ id }: Props) => {
   );
 };
 
+
+
+
 export const OtherVisual = ({ id }: Props) => {
   return (
     <Visual id={id}>
@@ -54,3 +59,5 @@ export const OtherVisual = ({ id }: Props) => {
     </Visual>
   );
 };
+
+
